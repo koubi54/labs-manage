@@ -153,6 +153,16 @@
                e.preventDefault();
                $("#file-upload").trigger("click");
             });
+
+            $('#dataTableCLt').on('search.dt', function() {
+                var value = $('.dataTables_filter input').val();
+                console.log(value.length);
+                if(value.length>3){
+                    $('tbody tr').removeClass('d-none')
+                }else{
+                    $('tbody tr').addClass('d-none')
+                }
+            }); 
             
         });
         function converHTMLFileToPDF() {
@@ -172,6 +182,7 @@
                     y: 10
                 });
             }
+            
     </script>
 </body>
 

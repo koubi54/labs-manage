@@ -4,10 +4,9 @@
    <div class="row">
       <div class="col-md-12">
          <h2>Suivi des paiements</h2>
-         @if(($cltService->montant-$totalPaiement) !=0)
          <a href="#"><button class="btn  btn-primary" style="position: relative;top: -40px;float: right;right: 20px;" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i> Ajouter</button></a>
-         @endif
          <button class="btn  btn-primary" onclick="converHTMLFileToPDF()" style="position: relative;top: -40px;float: right;right: 30px;"> <i class="fas fa-file-pdf"></i> Générate PDF</button>
+         <a href="{{route('detailsClt',['id'=>$cltService->id])}}"><button class="btn  btn-warning" style="position: relative;top: -40px;float: right;right: 20px;margin-right:20px;"><i class="fas  fa-arrow-left"></i> Dossier</button></a>
       </div>
    </div>
    <div class="row mt-4" id="temp-target">

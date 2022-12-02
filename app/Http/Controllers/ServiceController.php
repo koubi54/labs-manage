@@ -88,6 +88,14 @@ class ServiceController extends Controller
 
             }
         }
+        if(isset($_GET['action']) && $_GET['action'] == "delete"){
+            DB::table('images')->where('id',$_GET['id'])->delete();
+            return back();
+        }
+        if(isset($_GET['action']) && $_GET['action'] == "deleteNote"){
+            DB::table('notes')->where('id',$_GET['id'])->delete();
+            return back();
+        }
         $imagesType1 = Image::where('client_service_id',$id)->where('type',1)->get();
         $imagesType2 = Image::where('client_service_id',$id)->where('type',2)->first();
         $client        = DB::table('clients')

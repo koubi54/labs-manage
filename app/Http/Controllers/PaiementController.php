@@ -28,7 +28,7 @@ class PaiementController extends Controller
                         ->join('clients_services', 'services.id', '=', 'clients_services.service_id')
                         ->join('clients', 'clients.id', '=', 'clients_services.client_id')
                         ->where('clients_services.id',$idService)
-                        ->select('services.title','clients.nom','clients.prenom','clients.n_tele','clients.cin','clients_services.montant')
+                        ->select('services.title','clients.id','clients.nom','clients.prenom','clients.n_tele','clients.cin','clients_services.montant')
                         ->first();
         if($request->method()=='POST'){
             switch ($request->input('action')) {

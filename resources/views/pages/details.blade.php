@@ -1,7 +1,13 @@
 @extends('layouts.index')
 @section('content')
-<h1 class="h3 mb-4 text-gray-800">Suivi client</h1>
 <div class="row">
+      <div class="col-md-12">
+         <h2>Suivi client</h2>
+         <a href="{{route('detailsClt',['id'=>$client->id])}}"><button class="btn  btn-warning" style="position: relative;top: -40px;float: right;right: 20px;margin-right:20px;"><i class="fas  fa-arrow-left"></i> Dossier</button></a>
+      </div>
+   </div>
+<div class="row">
+   
     <div class="col-md-6">
     <div class="col-md-12">
         <div class="card shadow mb-4">
@@ -47,12 +53,18 @@
             @if($image->mineType == "application/pdf")
             <div class="card mb-4">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="{{asset('storage/app/public/'.$image->img)}}" class="text-primary" target="_blank"><i class="fas fa-file-pdf"></i> Fichier PDF</a></li>
+                    <li class="list-group-item">
+                        <a href="{{asset('storage/app/public/'.$image->img)}}" class="text-primary" target="_blank"><i class="fas fa-file-pdf"></i> Fichier PDF</a>
+                        <a href="{{route('detailService',['idService'=>$id])}}?action=delete&id={{$image->id}}" style="float:right"><i class="fas  fa-trash text-danger"></i></a>
+                    </li>
+                    
                 </ul>
+                
             </div>
             @else
             <div class="card mb-4">
                 <img class="card-img-top" src="{{asset('storage/app/public/'.$image->img)}}" alt="Card image cap">
+                <a href="{{route('detailService',['idService'=>$id])}}?action=delete&id={{$image->id}}" style="position: absolute;right: 10px;top: 10px;background: #eee;padding: 5px 10px;border-radius: 50%;"><i class="fas  fa-trash text-danger"></i></a>
             </div>
             @endif
             @endforeach
@@ -87,6 +99,7 @@
                 <div class="card-body">
                     <div class="wrapper">
                     <div class="container">
+                        <a href="{{route('detailService',['idService'=>$id])}}?action=deleteNote&id={{$note->id}}" style="float:right"><i class="fas  fa-trash text-danger"></i></a>
                         <p class="text-justify">{{$note->note}}</p>
                     </div>
                     </div>

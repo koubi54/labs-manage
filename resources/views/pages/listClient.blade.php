@@ -11,7 +11,7 @@
      <div class="col-md-12">
        <div class="card shadow mb-4">
          <div class="card-body">
-           <table class="table table-bordered" id="dataTable">
+           <table class="table table-bordered" id="dataTableCLt">
                <thead>
                  <tr>
                    <th>ID</th>
